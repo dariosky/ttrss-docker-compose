@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web:
+    image: "clue/ttrss"
+    ports:
+     - "1855:80"
+    depends_on:
+     - postgre
+    links:
+     - postgre
+    environment:
+      DB_ENV_USER: postgres
+      DB_ENV_PASS: pgpass
+      DB_PORT: 5432
+      DB_TYPE: pgsql
+      DB_HOST: postgre
+  postgre:
+    image: "postgres:alpine"
+    environment:
+      POSTGRES_PASSWORD: pgpass
