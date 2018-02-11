@@ -2,6 +2,7 @@ version: '3'
 services:
   web:
     image: "clue/ttrss"
+    restart: on-failure
     ports:
      - "1855:80"
     depends_on:
@@ -16,5 +17,12 @@ services:
       DB_HOST: postgre
   postgre:
     image: "postgres:alpine"
+    restart: on-failure
     environment:
       POSTGRES_PASSWORD: pgpass
+      PGDATA: /data
+    volumes:
+      - data:/data
+
+volumes:
+  data:
