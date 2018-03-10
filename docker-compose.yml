@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: "clue/ttrss"
+    build: .
     restart: always
     ports:
      - "1855:80"
@@ -9,12 +9,7 @@ services:
      - postgre
     links:
      - postgre
-    environment:
-      DB_ENV_USER: postgres
-      DB_ENV_PASS: pgpass
-      DB_PORT: 5432
-      DB_TYPE: pgsql
-      DB_HOST: postgre
+
   postgre:
     image: "postgres:alpine"
     restart: always

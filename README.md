@@ -24,6 +24,11 @@ the default username and password is `admin`:`password`
 
 ### Various
 
+#### Android sync
+
+The news+ plugin is included in the build, activate it in your
+user preferences to allow sync with News+ Android app.
+
 #### Backup
 
 It may be convienient to run a backup of the data volume from time to time,
