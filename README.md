@@ -41,11 +41,14 @@ The backups are saved as tar in the `backup` subfolder.
 #### Change self URL
 
 If you want to serve TTR with an host different than localhost, you'll
-have to specify an additional `SELF_URL_PATH` environment paramete to the web host.
+have to specify an additional `SELF_URL_PATH` environment parameter to the web host.
+Add this to the Dockerfile:
 
-Rember to keep the schema in the path, for example:
+	ENV SELF_URL_PATH http://feed.yourhost.com
 
-	SELF_URL_PATH: http://feed.yourhost.com
+And rebuild the container with:
+	
+	docker-compose up -d --no-deps --build web
 
 #### References
 
